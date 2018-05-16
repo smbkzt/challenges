@@ -1,12 +1,10 @@
-import re
-
 from data import DICTIONARY, LETTER_SCORES
 
 
 def load_words() -> list:
     """Load dictionary into a list and return list"""
     with open(DICTIONARY, "r") as f:
-        return [re.sub("\n", "", i) for i in f.readlines()]
+        return [word.strip() for word in f.read().split()]
 
 
 def calc_word_value(word: str):
